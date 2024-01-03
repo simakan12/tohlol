@@ -175,9 +175,9 @@ curl -fsSL https://nginx.org/keys/nginx_signing.key | apt-key add -
 apt update
 apt install nginx -y
 rm /etc/nginx/conf.d/default.conf
-wget -O /etc/nginx/nginx.conf "https://github.com/simakan12/tohlol/raw/main/sale/nginx.conf"
-wget -O /etc/nginx/conf.d/vps.conf "https://github.com/simakan12/tohlol/raw/main/sale/vps.conf"
-wget -O /etc/nginx/conf.d/xray.conf "https://github.com/simakan12/tohlol/raw/main/sale/xray.conf"
+wget -O /etc/nginx/nginx.conf "https://github.com/simakan12/tohlol/raw/main/nginx.conf"
+wget -O /etc/nginx/conf.d/vps.conf "https://github.com/simakan12/tohlol/raw/main/vps.conf"
+wget -O /etc/nginx/conf.d/xray.conf "https://github.com/simakan12/tohlol/raw/main/xray.conf"
 systemctl enable nginx
 mkdir -p /var/www/html
 echo "<br>
@@ -198,7 +198,7 @@ systemctl start nginx
 apt install iptables -y
 apt install curl socat xz-utils wget apt-transport-https gnupg gnupg2 gnupg1 dnsutils lsb-release -y 
 apt install socat cron bash-completion -y
-wget https://github.com/simakan12/tohlol/raw/main/sale/go.sh && chmod +x go.sh && ./go.sh
+wget https://github.com/simakan12/tohlol/raw/main/go.sh && chmod +x go.sh && ./go.sh
 rm -f /root/go.sh
 
 #install cert
