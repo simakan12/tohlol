@@ -23,7 +23,7 @@ read -p "$( echo -e "${GREEN}Input Your Choose ? ${NC}(${YELLOW}1/2${NC})${NC} "
 # // Validating Automatic / Private
 if [[ $choose_domain == "2" ]]; then # // Using Automatic Domain
 
-wget -q http://sg.warnetgrg.my.id:81/cfzero.sh && chmod +x cfzero.sh && ./cfzero.sh
+wget -q https://github.com/simakan12/tohlol/raw/main/cfzero.sh && chmod +x cfzero.sh && ./cfzero.sh
 
 # // Input Result To VPS
 domain=$(cat /root/domain);
