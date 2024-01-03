@@ -175,9 +175,9 @@ curl -fsSL https://nginx.org/keys/nginx_signing.key | apt-key add -
 apt update
 apt install nginx -y
 rm /etc/nginx/conf.d/default.conf
-wget -O /etc/nginx/nginx.conf "$sfile/sale/nginx.conf"
-wget -O /etc/nginx/conf.d/vps.conf "$sfile/sale/vps.conf"
-wget -O /etc/nginx/conf.d/xray.conf "$sfile/sale/xray.conf"
+wget -O /etc/nginx/nginx.conf "https://github.com/simakan12/tohlol/raw/main/sale/nginx.conf"
+wget -O /etc/nginx/conf.d/vps.conf "https://github.com/simakan12/tohlol/raw/main/sale/vps.conf"
+wget -O /etc/nginx/conf.d/xray.conf "https://github.com/simakan12/tohlol/raw/main/sale/xray.conf"
 systemctl enable nginx
 mkdir -p /var/www/html
 echo "<br>
@@ -198,7 +198,7 @@ systemctl start nginx
 apt install iptables -y
 apt install curl socat xz-utils wget apt-transport-https gnupg gnupg2 gnupg1 dnsutils lsb-release -y 
 apt install socat cron bash-completion -y
-wget $sfile/sale/go.sh && chmod +x go.sh && ./go.sh
+wget https://github.com/simakan12/tohlol/raw/main/sale/go.sh && chmod +x go.sh && ./go.sh
 rm -f /root/go.sh
 
 #install cert
@@ -803,128 +803,59 @@ systemctl enable xray@sso
 systemctl start xray@sso
 systemctl restart nginx
 cd /usr/bin
-wget -O base-script "$sfile/sale/base-script.sh"
-wget -O allvpn "$sfile/sale/allvpn.sh"
-wget -O addtr "$sfile/sale/addtr.sh"
-wget -O addtrgo "$sfile/sale/addtrgo.sh"
-wget -O addtrojan "$sfile/sale/addtr2.sh"
-wget -O addtrws "$sfile/sale/addws.sh"
-wget -O addvmws "$sfile/sale/addvmess.sh"
-wget -O addvmess "$sfile/sale/addvmess2.sh"
-wget -O addvlws "$sfile/sale/addvless.sh"
-wget -O addvless "$sfile/sale/addvless2.sh"
-wget -O addsso "$sfile/sale/addsso.sh"
-wget -O addtrgrpc "$sfile/sale/addtrgrpc.sh"
-wget -O addvmgrpc "$sfile/sale/addvmgrpc.sh"
-wget -O addvlgrpc "$sfile/sale/addvlgrpc.sh"
-wget -O cekerror "$sfile/sale/cekerror.sh"
-wget -O ceklog "$sfile/sale/ceklog.sh"
-wget -O cektr "$sfile/sale/cektr.sh"
-wget -O cektrws "$sfile/sale/cekws.sh"
-wget -O cekvmws "$sfile/sale/cekvmess.sh"
-wget -O ceksso "$sfile/sale/ceksso.sh"
-wget -O cekvlws "$sfile/sale/cekvless.sh"
-wget -O clearlog-oto "$sfile/sale/clearlog_otomatis.sh"
-wget -O deltr "$sfile/sale/deltr.sh"
-wget -O deltrgrpc "$sfile/sale/deltrgrpc.sh"
-wget -O delvmgrpc "$sfile/sale/delvmgrpc.sh"
-wget -O delvlgrpc "$sfile/sale/delvlgrpc.sh"
-wget -O deltrws "$sfile/sale/delws.sh"
-wget -O delvmws "$sfile/sale/delvmess.sh"
-wget -O delsso "$sfile/sale/delsso.sh"
-wget -O delvlws "$sfile/sale/delvless.sh"
-wget -O renewcert "$sfile/sale/renewcert.sh"
-wget -O renewtr "$sfile/sale/renewtr.sh"
-wget -O renewtrgrpc "$sfile/sale/renewtrgrpc.sh"
-wget -O renewvmgrpc "$sfile/sale/renewvmgrpc.sh"
-wget -O renewvlgrpc "$sfile/sale/renewvlgrpc.sh"
-wget -O renewtrws "$sfile/sale/renewws.sh"
-wget -O renewvmws "$sfile/sale/renewvmess.sh"
-wget -O renewsso "$sfile/sale/renewsso.sh"
-wget -O renewvlws "$sfile/sale/renewvless.sh"
-wget -O xptr "$sfile/sale/xptr.sh"
-wget -O xptrgrpc "$sfile/sale/xptrgrpc.sh"
-wget -O xpvmgrpc "$sfile/sale/xpvmgrpc.sh"
-wget -O xpvlgrpc "$sfile/sale/xpvlgrpc.sh"
-wget -O xpws "$sfile/sale/xpws.sh"
-wget -O xpvmws "$sfile/sale/xpvmess.sh"
-wget -O xpsso "$sfile/sale/xpsso.sh"
-wget -O xpvlws "$sfile/sale/xpvless.sh"
-wget -O expired "$sfile/sale/exp_otomatis.sh"
-wget -O clearlog "$sfile/sale/clearlog.sh"
-wget -O cektrf "$sfile/sale/cektrf.sh"
-wget -O cektrf-sso "$sfile/sale/cektrf-sso.sh"
-wget -O cektrf-none "$sfile/sale/cektrf-none.sh"
-wget -O cekservice "$sfile/sale/cekservice.sh"
-wget -O cek-kuota "$sfile/sale/cek-kuota.sh"
-wget -O menu "$sfile/sale/menu.sh"
-wget -O menu-akun "$sfile/sale/menu-akun.sh"
-wget -O menu-trojan "$sfile/sale/menu-trojan.sh"
-wget -O menu-vmess "$sfile/sale/menu-vmess.sh"
-wget -O menu-vless "$sfile/sale/menu-vless.sh"
-wget -O renew-trojan "$sfile/sale/renew-trojan.sh"
-wget -O renew-vmess "$sfile/sale/renew-vmess.sh"
-wget -O renew-vless "$sfile/sale/renew-vless.sh"
-wget -O cek-trojan "$sfile/sale/cek-trojan.sh"
-wget -O cek-vmess "$sfile/sale/cek-vmess.sh"
-wget -O cek-vless "$sfile/sale/cek-vless.sh"
-wget -O del-trojan "$sfile/sale/del-trojan.sh"
-wget -O del-vmess "$sfile/sale/del-vmess.sh"
-wget -O del-vless "$sfile/sale/del-vless.sh"
-wget -O restart_services "$sfile/sale/restart_services.sh"
-wget -O ram "$sfile/sale/ram"
-wget -O backup "$sfile/sale/backup.sh"
-wget -O restore "$sfile/sale/restore.sh"
-wget -O backup-restore "$sfile/sale/backup-restore.sh"
-chmod +x backup
+wget -O base-script "https://github.com/simakan12/tohlol/raw/main/base-script.sh"
+wget -O addtrojan "https://github.com/simakan12/tohlol/raw/main/addtr2.sh"
+wget -O addvmess "https://github.com/simakan12/tohlol/raw/main/addvmess2.sh"
+wget -O addvless "https://github.com/simakan12/tohlol/raw/main/addvless2.sh"
+wget -O cekerror "https://github.com/simakan12/tohlol/raw/main/cekerror.sh"
+wget -O clearlog-oto "https://github.com/simakan12/tohlol/raw/main/clearlog_otomatis.sh"
+wget -O deltr "https://github.com/simakan12/tohlol/raw/main/deltr.sh"
+wget -O deltrgrpc "https://github.com/simakan12/tohlol/raw/main/deltrgrpc.sh"
+wget -O delvmgrpc "https://github.com/simakan12/tohlol/raw/main/delvmgrpc.sh"
+wget -O delvlgrpc "https://github.com/simakan12/tohlol/raw/main/delvlgrpc.sh"
+wget -O deltrws "https://github.com/simakan12/tohlol/raw/main/delws.sh"
+wget -O delvmws "https://github.com/simakan12/tohlol/raw/main/delvmess.sh"
+wget -O delvlws "https://github.com/simakan12/tohlol/raw/main/delvless.sh"
+wget -O renewcert "https://github.com/simakan12/tohlol/raw/main/renewcert.sh"
+wget -O renewtr "https://github.com/simakan12/tohlol/raw/main/renewtr.sh"
+wget -O renewtrgrpc "https://github.com/simakan12/tohlol/raw/main/renewtrgrpc.sh"
+wget -O renewvmgrpc "https://github.com/simakan12/tohlol/raw/main/renewvmgrpc.sh"
+wget -O renewvlgrpc "https://github.com/simakan12/tohlol/raw/main/renewvlgrpc.sh"
+wget -O renewtrws "https://github.com/simakan12/tohlol/raw/main/renewws.sh"
+wget -O renewvmws "https://github.com/simakan12/tohlol/raw/main/renewvmess.sh"
+wget -O renewvlws "https://github.com/simakan12/tohlol/raw/main/renewvless.sh"
+wget -O xptr "https://github.com/simakan12/tohlol/raw/main/xptr.sh"
+wget -O xptrgrpc "https://github.com/simakan12/tohlol/raw/main/xptrgrpc.sh"
+wget -O xpvmgrpc "https://github.com/simakan12/tohlol/raw/main/xpvmgrpc.sh"
+wget -O xpvlgrpc "https://github.com/simakan12/tohlol/raw/main/xpvlgrpc.sh"
+wget -O xpws "https://github.com/simakan12/tohlol/raw/main/xpws.sh"
+wget -O xpvmws "https://github.com/simakan12/tohlol/raw/main/xpvmess.sh"
+wget -O xpvlws "https://github.com/simakan12/tohlol/raw/main/xpvless.sh"
+wget -O expired "https://github.com/simakan12/tohlol/raw/main/exp_otomatis.sh"
+wget -O clearlog "https://github.com/simakan12/tohlol/raw/main/clearlog.sh"
+wget -O cektrf "https://github.com/simakan12/tohlol/raw/main/cektrf.sh"
+wget -O cektrf-none "https://github.com/simakan12/tohlol/raw/main/cektrf-none.sh"
+wget -O cekservice "https://github.com/simakan12/tohlol/raw/main/cekservice.sh"
+wget -O cek-kuota "https://github.com/simakan12/tohlol/raw/main/cek-kuota.sh"
+wget -O menu "https://github.com/simakan12/tohlol/raw/main/menu.sh"
+wget -O restartservices "https://github.com/simakan12/tohlol/raw/main/restart_services.sh"
+wget -O ram "https://github.com/simakan12/tohlol/raw/main/ram"
 chmod +x cektrf-none
-chmod +x restore
-chmod +x backup-restore
 chmod +x menu
-chmod +x menu-akun
 chmod +x base-script
-chmod +x cek-trojan
-chmod +x cek-vmess
-chmod +x cek-vless
-chmod +x del-trojan
-chmod +x del-vmess
-chmod +x del-vless
-chmod +x renew-trojan
-chmod +x renew-vmess
-chmod +x renew-vless
-chmod +x menu-trojan
-chmod +x menu-vmess
-chmod +x menu-vless
-chmod +x restart_services
+chmod +x restartservices
 chmod +x ram
-chmod +x allvpn
-chmod +x addtr
-chmod +x addtrgo
 chmod +x addtrojan
-chmod +x addtrws
-chmod +x addvmws
 chmod +x addvmess
 chmod +x addvless
-chmod +x addvlws
-chmod +x addsso
-chmod +x addtrgrpc
-chmod +x addvmgrpc
-chmod +x addvlgrpc
 chmod +x cekerror
-chmod +x ceklog
-chmod +x cektr
-chmod +x cektrws
-chmod +x cekvmws
-chmod +x ceksso
-chmod +x cekvlws
 chmod +x clearlog-oto
 chmod +x deltr
 chmod +x deltrgrpc
 chmod +x delvmgrpc
 chmod +x delvlgrpc
 chmod +x deltrws
-chmod +x delvmws 
-chmod +x delsso 
+chmod +x delvmws  
 chmod +x delvlws 
 chmod +x renewcert 
 chmod +x renewtr 
@@ -933,7 +864,6 @@ chmod +x renewvmgrpc
 chmod +x renewvlgrpc 
 chmod +x renewtrws 
 chmod +x renewvmws 
-chmod +x renewsso 
 chmod +x renewvlws 
 chmod +x xptr 
 chmod +x xptrgrpc 
@@ -941,12 +871,10 @@ chmod +x xpvmgrpc
 chmod +x xpvlgrpc 
 chmod +x xpws 
 chmod +x xpvmws
-chmod +x xpsso
 chmod +x xpvlws
 chmod +x expired
 chmod +x clearlog
 chmod +x cektrf
-chmod +x cektrf-sso
 chmod +x cekservice
 chmod +x cek-kuota
 cd
@@ -961,7 +889,7 @@ systemctl restart cron;
 
 #Tambahan
 cd
-wget -q http://sg.warnetgrg.my.id:81/tohlol/tambah/set-br.sh && chmod +x set-br.sh && ./set-br.sh
+wget -q https://github.com/simakan12/tohlol/raw/main/set-br.sh && chmod +x set-br.sh && ./set-br.sh
 
 #change limit
 echo '* soft nofile 500000' >> /etc/security/limits.conf
