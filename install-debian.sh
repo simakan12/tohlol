@@ -140,7 +140,7 @@ timedatectl set-timezone Asia/Jakarta;
 
 #profile
 echo -e 'profile' >> /root/.profile
-wget -O /usr/bin/profile "https://github.com/simakan12/tohlol/raw/main/sale/profile.sh";
+wget -O /usr/bin/profile "https://github.com/simakan12/tohlol/raw/main/profile.sh";
 chmod +x /usr/bin/profile
 apt install neofetch -y
 
