@@ -17,7 +17,7 @@ until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${CLIENT_EXISTS} == '0' ]]; do
                         exit 1
                 fi
         done
-uuid=$(password)
+uuid=${password}
 read -p "Expired (days): " masaaktif
 exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
 sed -i '/#vmess$/a\### '"Vmess $user $exp"'\
