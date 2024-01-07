@@ -19,10 +19,11 @@ echo -e "\E[44;1;39m               ⇱ INFORMATION MENU ⇲               \E[0m"
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "\033[1;32mAbout\033[0m :
 
-   Isp Name : $ISP
-   City     : $CITY
-   Time     : $WKT
-   IPVPS    : $IPVPS
+   Isp Name  : $ISP
+   City      : $CITY
+   Time      : $WKT
+   IPVPS     : $IPVPS
+   DOMAIN    : (cat /etc/domain)
 
    \033[1;33mThis script by : Dklongtong | https://t.me/Dklongtong\033[0m"
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m
