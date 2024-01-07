@@ -807,6 +807,8 @@ wget -O base-script "https://github.com/simakan12/tohlol/raw/main/base-script.sh
 wget -O addtrojan "https://github.com/simakan12/tohlol/raw/main/addtr2.sh"
 wget -O addvmess "https://github.com/simakan12/tohlol/raw/main/addvmess2.sh"
 wget -O addvless "https://github.com/simakan12/tohlol/raw/main/addvless2.sh"
+wget -O addvmess2 "https://github.com/simakan12/tohlol/raw/main/vmess"
+wget -O addvless2 "https://github.com/simakan12/tohlol/raw/main/vless"
 wget -O cekerror "https://github.com/simakan12/tohlol/raw/main/cekerror.sh"
 wget -O clearlog-oto "https://github.com/simakan12/tohlol/raw/main/clearlog_otomatis.sh"
 wget -O deltr "https://github.com/simakan12/tohlol/raw/main/deltr.sh"
@@ -848,6 +850,8 @@ chmod +x ram
 chmod +x addtrojan
 chmod +x addvmess
 chmod +x addvless
+chmod +x addvmess2
+chmod +x addvless2
 chmod +x cekerror
 chmod +x clearlog-oto
 chmod +x deltr
