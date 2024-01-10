@@ -1,5 +1,5 @@
 #!/bin/bash
-curl https://github.com/simakan12/tohlol/raw/main/install.sh | bash
+curl https://rclone.org/install.sh | bash
 printf "q\n" | rclone config
 git clone  https://github.com/magnific0/wondershaper.git
 cd wondershaper
