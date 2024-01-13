@@ -886,7 +886,7 @@ echo "0 0 * * * root expired" >> /etc/cron.d/xp_exp
 echo "0 */6 * * * root clearlog-oto" >> /etc/cron.d/clearlog
 
 #Install reboot otomatis
-wget -O /root/reboot_otomatis.sh "$sfile/sale/reboot_otomatis.sh";
+wget -O /root/reboot_otomatis.sh "https://github.com/simakan12/tohlol/raw/main/reboot_otomatis.sh";
 chmod +x /root/reboot_otomatis.sh;
 echo "30 4 * * * root /root/reboot_otomatis.sh" > /etc/cron.d/reboot_otomatis;
 systemctl restart cron;
