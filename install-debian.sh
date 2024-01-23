@@ -846,6 +846,12 @@ wget -O menu-akun "https://github.com/simakan12/tohlol/raw/main/menu-akun.sh"
 wget -O menu-trojan "https://github.com/simakan12/tohlol/raw/main/menu-trojan.sh"
 wget -O menu-vmess "https://github.com/simakan12/tohlol/raw/main/menu-vmess.sh"
 wget -O menu-vless "https://github.com/simakan12/tohlol/raw/main/menu-vless.sh"
+wget -O renew-trojan "https://github.com/simakan12/tohlol/raw/main/renew-trojan.sh"
+wget -O renew-vmess "https://github.com/simakan12/tohlol/raw/main/renew-vmess.sh"
+wget -O renew-vless "https://github.com/simakan12/tohlol/raw/main/renew-vless.sh"
+wget -O del-trojan "https://github.com/simakan12/tohlol/raw/main/del-trojan.sh"
+wget -O del-vmess "https://github.com/simakan12/tohlol/raw/main/del-vmess.sh"
+wget -O del-vless "https://github.com/simakan12/tohlol/raw/main/del-vless.sh"
 chmod +x cektrf-none
 chmod +x menu
 chmod +x base-script
@@ -889,6 +895,12 @@ chmod +x menu-akun
 chmod +x menu-trojan
 chmod +x menu-vmess
 chmod +x menu-vless
+chmod +x del-trojan
+chmod +x del-vmess
+chmod +x del-vless
+chmod +x renew-trojan
+chmod +x renew-vmess
+chmod +x renew-vless
 cd
 echo "0 0 * * * root expired" >> /etc/cron.d/xp_exp
 echo "0 */6 * * * root clearlog-oto" >> /etc/cron.d/clearlog
