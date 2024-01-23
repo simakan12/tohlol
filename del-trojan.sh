@@ -1,7 +1,7 @@
 #!/bin/bash
 source /usr/bin/base-script
 clear
-echo -e " == LingSSH == " | lolcat -a
+echo -e " == DKLONGTONG == " | lolcat -a
 echo -e ""
 echo -e "$GRN1 Hapus Trojan GFW/TCP"
 echo -e "$GRN2 Hapus Trojan GO/WS"
