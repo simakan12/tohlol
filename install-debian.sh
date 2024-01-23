@@ -842,6 +842,7 @@ wget -O cek-kuota "https://github.com/simakan12/tohlol/raw/main/cek-kuota.sh"
 wget -O menu "https://github.com/simakan12/tohlol/raw/main/menu.sh"
 wget -O restartservices "https://github.com/simakan12/tohlol/raw/main/restart_services.sh"
 wget -O ram "https://github.com/simakan12/tohlol/raw/main/ram"
+wget -O menu-akun "https://github.com/simakan12/tohlol/raw/main/menu-akun.sh"
 chmod +x cektrf-none
 chmod +x menu
 chmod +x base-script
@@ -881,6 +882,7 @@ chmod +x clearlog
 chmod +x cektrf
 chmod +x cekservice
 chmod +x cek-kuota
+chmod +x menu-akun
 cd
 echo "0 0 * * * root expired" >> /etc/cron.d/xp_exp
 echo "0 */6 * * * root clearlog-oto" >> /etc/cron.d/clearlog
