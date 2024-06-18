@@ -39,7 +39,7 @@ exp2=$(( (d1 - d2) / 86400 ))
 exp3=$(($exp2 + $masaaktif))
 exp4=`date -d "$exp3 days" +"%Y-%m-%d"`
 sed -i "s/### WS $user $exp/### WS $user $exp4/g" /etc/xray/config.json
-sed -i "s/### WS $user $exp/### Vmess $user $exp4/g" /etc/xray/none.json
+sed -i "s/### WS $user $exp/### WS $user $exp4/g" /etc/xray/none.json
 clear
 echo ""
 echo " Akun berhasil diperpanjang"
