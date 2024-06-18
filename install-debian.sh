@@ -582,70 +582,90 @@ cat >/etc/xray/config.json <<EOF
 EOF
 cat >/etc/xray/none.json <<EOF
 {
-        "log": {
-                "access": "/var/log/xray/access2.log",
-                "error": "/var/log/xray/error.log",
-                "loglevel": "warning"
-        },
-        "api": {
-                "tag": "api",
-                "services": [
-                        "StatsService"
-                ]
-        },
-        "dns": {
-                "servers": [
-                        "1.1.1.1"
-                ],
-                "queryStrategy": "UseIPv4"
-        },
-        "routing": {
-                "domainStrategy": "IPIfNonMatch",
-                "rules": [
-                        {
-                                "inboundTag": [
-                                        "api"
-                                ],
-                                "outboundTag": "api",
-                                "type": "field"
-                        }
-                ]
-        },
-        "policy": {
-                "levels": {
-                        "0": {
-                                "statsUserUplink": true,
-                                "statsUserDownlink": true
-                        }
-                },
-                        "system": {
-                        "statsInboundUplink": false,
-                        "statsInboundDownlink": false,
-                        "statsOutboundUplink": false,
-                        "statsOutboundDownlink": false
-                                }
-        },
-"inbounds": [
-        {
-            "port": 80,
-            "protocol": "vless",
-            "settings": {
-                "clients": [
-                    {
-                        "id": "$uuid","email": "bawaanvlwsnon"
+  "log": {
+    "access": "/var/log/xray/access2.log",
+    "error": "/var/log/xray/error2.log",
+    "loglevel": "warning"
+  },
+    "dns": {
+    "servers": [
+        "https+local://1.1.1.1/dns-query",
+        "localhost"
+      ]
+  },
+  "inbounds": [
+    {
+      "listen": "127.0.0.1",
+      "port": 47465,
+      "protocol": "dokodemo-door",
+      "settings": {
+        "address": "127.0.0.1"
+      },
+      "tag": "api"
+    },
+    {
+      "listen": "127.0.0.1",
+      "port": 5210,
+      "protocol": "vmess",
+      "settings": {
+        "clients": [
+          {
+            "id": "$uuid","email": "bawaanvmessnon"
+            "alterId": 0
+#vmess
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "wsSettings": {
+          "path": "/vmess",
+          "headers": {
+            "Host": ""
+          }
+         },
+        "quicSettings": {},
+        "sockopt": {
+          "mark": 0,
+          "tcpFastOpen": true
+        }
+      },
+      "sniffing": {
+        "enabled": true,
+        "destOverride": [
+          "http",
+          "tls"
+        ]
+      }
+    },
+      {
+      "listen": "127.0.0.1",
+      "port": 5211,
+      "protocol": "vless",
+      "settings": {
+        "clients": [
+          {
+            "id": "$uuid","email": "bawaanvlessnon"
 #vless
-                    }
-                ],
-                "decryption": "none"
-            },
-            "streamSettings": {
-                "network": "ws",
-                "security": "none",
-                "wsSettings": {
-                    "path": "/vless"
-                }
-            },
-        "sniffing": {
+          }
+        ],
+        "decryption": "none"
+      },
+      "streamSettings": {
+        "network": "ws",
+        "wsSettings": {
+          "path": "/vless",
+          "headers": {
+            "Host": ""
+          }
+         },
+        "quicSettings": {},
+        "sockopt": {
+          "mark": 0,
+          "tcpFastOpen": true
+        }
+      },
+      "sniffing": {
         "enabled": true,
         "destOverride": [
           "http",
@@ -654,57 +674,105 @@ cat >/etc/xray/none.json <<EOF
       }
     },
     {
-            "port": 80,
-            "protocol": "vmess",
+            "listen": "127.0.0.1",
+            "port": 5212,
+            "protocol": "trojan",
             "settings": {
                 "clients": [
                     {
-                        "id": "$uuid","email": "bawaanvmwsnon"
-#vmess
+                        "password" : "$uuid","email": "bawaantrwsnon"
+#ws
                     }
-                ],
-                "decryption": "none"
+                ]
             },
             "streamSettings": {
                 "network": "ws",
                 "security": "none",
                 "wsSettings": {
-                    "path": "/vmess"
+                    "path" : "/trojan"
                 }
-            },
-        "sniffing": {
+			},
+	"sniffing": {
         "enabled": true,
         "destOverride": [
           "http",
           "tls"
-          ]
-        }
-      },
+        ]
+      }
+    }
+  ],
+  "outbounds": [
     {
-      "tag": "api",
-      "listen": "127.0.0.1",
-      "port": 47465,
-      "protocol": "dokodemo-door",
-       "settings": {
-                     "address": "127.0.0.1"
-                        }
-                }
+      "protocol": "freedom",
+      "settings": {}
+    },
+    {
+      "protocol": "blackhole",
+      "settings": {},
+      "tag": "blocked"
+    },
+  ],
+  "routing": {
+    "domainStrategy": "IPOnDemand",
+    "domainMatcher": "linear",
+    "rules": [
+      {
+        "type": "field",
+        "ip": [
+          "0.0.0.0/8",
+          "10.0.0.0/8",
+          "100.64.0.0/10",
+          "169.254.0.0/16",
+          "172.16.0.0/12",
+          "192.0.0.0/24",
+          "192.0.2.0/24",
+          "192.168.0.0/16",
+          "198.18.0.0/15",
+          "198.51.100.0/24",
+          "203.0.113.0/24",
+          "::1/128",
+          "fc00::/7",
+          "fe80::/10"
         ],
-                "outbounds": [
-                {
-                  "tag": "direct",
-                  "protocol": "freedom",
-                   "settings": {
-                             "domainStrategy": "UseIPv4"
-                        }
-                },
-                {
-                  "tag": "block",
-                  "protocol": "blackhole",
-                    "settings": {}
-                }
+        "outboundTag": "blocked"
+      },
+      {
+        "inboundTag": [
+          "api"
         ],
-        "stats": {}
+        "outboundTag": "api",
+        "type": "field"
+      },
+      {
+        "type": "field",
+        "outboundTag": "blocked",
+        "protocol": [
+          "bittorrent"
+        ]
+      }
+    ]
+  },
+  "stats": {},
+  "api": {
+    "services": [
+      "StatsService"
+    ],
+    "tag": "api"
+  },
+  "policy": {
+    "levels": {
+      "0": {
+        "statsUserDownlink": true,
+        "statsUserUplink": true
+      }
+    },
+    "system": {
+      "statsInboundUplink": true,
+      "statsInboundDownlink": true,
+      "statsOutboundUplink" : true,
+      "statsOutboundDownlink" : true
+    }
+  }
 }
 EOF
 cat >/etc/xray/sso.json <<EOF
