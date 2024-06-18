@@ -32,11 +32,12 @@ NUMBER_OF_CLIENTS=$(grep -c -E "^### WS" "/etc/xray/config.json")
 user=$(grep -E "^### WS " "/etc/xray/config.json" | cut -d ' ' -f 3 | sed -n "${CLIENT_NUMBER}"p)
 exp=$(grep -E "^### WS " "/etc/xray/config.json" | cut -d ' ' -f 4 | sed -n "${CLIENT_NUMBER}"p)
 sed -i "/^### WS $user $exp/,/^},{/d" /etc/xray/config.json
+sed -i "/^### WS $user $exp/,/^},{/d" /etc/xray/none.json
 systemctl restart xray
+systemctl restart xray@none
 clear
 echo " TROJAN-WS Akun berhasil dihapus"
 echo " =========================="
 echo " Client Name : $user"
 echo " Expired On  : $exp"
 echo " =========================="
-
