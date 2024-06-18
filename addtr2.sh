@@ -24,6 +24,8 @@ sed -i '/#trojan$/a\### '"Trojan $user $exp"'\
 },{"password": "'""$pass""'","flow": "'"xtls-rprx-direct"'","email": "'""trojantcp-$user""'"' /etc/xray/config.json
 sed -i '/#ws$/a\### '"WS $user $exp"'\
 },{"password": "'""$pass""'","email": "'""trojanws-$user""'"' /etc/xray/config.json
+sed -i '/#ws$/a\### '"WS $user $exp"'\
+},{"password": "'""$pass""'","email": "'""trojanws-$user""'"' /etc/xray/none.json
 sed -i '/#trgrpc$/a\### '"Trgrpc $user $exp"'\
 },{"password": "'""$pass""'","email": "'""trojangrpc-$user""'"' /etc/xray/config.json
 trojan="trojan://${pass}@${domain}:443#${namatoko}-${user}"
@@ -31,6 +33,7 @@ xtls="trojan://${pass}@${domain}:443/?sni=bugmu.com&security=xtls&flow=xtls-rprx
 ws="trojan://${pass}@${domain}:443?encryption=none&host=${domain}&path=%2Ftrojan&type=ws#${namatoko}-${user}"
 grpc="trojan://${pass}@${domain}:443/?sni=${domain}&type=grpc&host=${domain}&serviceName=Trojan-GRPC&encryption=none#${namatoko}-${user}"
 systemctl restart xray
+systemctl restart xray@none
 clear
 echo -e ""
 echo -e "=======-XRAY/TROJAN======="
