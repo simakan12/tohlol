@@ -31,7 +31,7 @@ sed -i '/#trgrpc$/a\### '"Trgrpc $user $exp"'\
 trojan="trojan://${pass}@${domain}:443#${namatoko}-${user}"
 xtls="trojan://${pass}@${domain}:443/?sni=bugmu.com&security=xtls&flow=xtls-rprx-direct#${namatoko}-${user}"
 ws="trojan://${pass}@${domain}:443?encryption=none&host=${domain}&path=%2Ftrojan&type=ws#${namatoko}-${user}"
-wsnon="trojan://${pass}@${domain}:443?encryption=none&host=${domain}&path=%2Ftrojan&security=none&type=ws#${namatoko}-${user}"
+wsnon="trojan://${pass}@${domain}:80?encryption=none&host=${domain}&path=%2Ftrojan&security=none&type=ws#${namatoko}-${user}"
 grpc="trojan://${pass}@${domain}:443/?sni=${domain}&type=grpc&host=${domain}&serviceName=Trojan-GRPC&encryption=none#${namatoko}-${user}"
 systemctl restart xray
 systemctl restart xray@none
