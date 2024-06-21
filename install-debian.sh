@@ -176,11 +176,11 @@ apt update
 apt install nginx -y
 rm /etc/nginx/conf.d/default.conf
 wget -O /etc/nginx/nginx.conf "https://github.com/simakan12/tohlol/raw/main/nginx.conf"
-wget -O /etc/nginx/55.conf "https://github.com/simakan12/tohlol/raw/main/55.conf"
-wget -O /etc/nginx/80.conf "https://github.com/simakan12/tohlol/raw/main/80.conf"
-wget -O /etc/nginx/8080.conf "https://github.com/simakan12/tohlol/raw/main/8080.conf"
-wget -O /etc/nginx/8083.conf "https://github.com/simakan12/tohlol/raw/main/8083.conf"
-wget -O /etc/nginx/8880.conf "https://github.com/simakan12/tohlol/raw/main/8880.conf"
+wget -O /etc/nginx/conf.d/55.conf "https://github.com/simakan12/tohlol/raw/main/55.conf"
+wget -O /etc/nginx/conf.d/80.conf "https://github.com/simakan12/tohlol/raw/main/80.conf"
+wget -O /etc/nginx/conf.d/8080.conf "https://github.com/simakan12/tohlol/raw/main/8080.conf"
+wget -O /etc/nginx/conf.d/8083.conf "https://github.com/simakan12/tohlol/raw/main/8083.conf"
+wget -O /etc/nginx/conf.d/8880.conf "https://github.com/simakan12/tohlol/raw/main/8880.conf"
 wget -O /etc/nginx/conf.d/vps.conf "https://github.com/simakan12/tohlol/raw/main/vps.conf"
 wget -O /etc/nginx/conf.d/xray.conf "https://github.com/simakan12/tohlol/raw/main/xray.conf"
 systemctl enable nginx
