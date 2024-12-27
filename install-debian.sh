@@ -715,7 +715,7 @@ cat >/etc/xray/none.json <<EOF
       "protocol": "blackhole",
       "settings": {},
       "tag": "blocked"
-    },
+    }
   ],
   "routing": {
     "domainStrategy": "IPOnDemand",
